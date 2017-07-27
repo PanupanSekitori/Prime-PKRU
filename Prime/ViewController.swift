@@ -12,6 +12,12 @@ class ViewController: UIViewController {
     
     //Impricit
     let strAlertHaveSpace = "Please Fill Number"
+    let strAlertNumberFalse = "Please Fill Number Only"
+    let strAlertNotPrime = " not Prime"
+    let strAlertBePrime = " is Prime"
+    
+    
+    
     
     
     @IBOutlet weak var numberTextField: UITextField!
@@ -24,8 +30,29 @@ class ViewController: UIViewController {
         let strNumberFromTextField = numberTextField.text!
         print("Number ==> \(strNumberFromTextField)")
         
+        //Check Space
         if strNumberFromTextField != "" {
             print("No Space")
+            
+            //Check Number or Artical
+            if let intNumberFromTextField = Int(strNumberFromTextField) {
+                print("This is Number")
+                
+                //Check Prime
+                if intNumberFromTextField != 1 {
+                    // Not 1
+                    
+                }   else {
+                    resultLabel.text = "\(intNumberFromTextField)" + strAlertNotPrime
+                }
+                
+            }   else {
+                print("This is Arical")
+                resultLabel.text = strAlertNumberFalse
+            }
+            
+            
+            
         }   else {
             print("Have Space")
             resultLabel.text = strAlertHaveSpace
